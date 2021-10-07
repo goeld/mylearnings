@@ -1,0 +1,24 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: my-cron
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: my-cron
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: nginx
+            name: my-cron
+            resources: {}
+            command: ["bin/sh"]
+            args: ["-c", "curl kpblabs.in/ping"]
+          restartPolicy: Never
+  schedule: 1 * * * *
+status: {}

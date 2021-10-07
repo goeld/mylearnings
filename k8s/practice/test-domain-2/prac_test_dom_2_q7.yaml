@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-configuration
+  name: my-configuration
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-configuration
+  strategy:
+    rollingUpdate:
+      maxSurge: 30%
+      maxUnavailable: 0 
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-configuration
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}

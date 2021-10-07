@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: my-pvc
+  name: mypod-pvc-pod
+spec:
+  containers:
+    - image: nginx
+      name: mypod-pvc-pod
+      resources: {}
+      volumeMounts:
+        - mountPath: /data # Path on the docker container
+          name: my-volume # Should match to one of  .spec.volume.name
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+    - name: my-volume
+      persistentVolumeClaim:
+        claimName: my-pvc

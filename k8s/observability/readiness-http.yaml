@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readiness-command
+spec:
+  containers:
+  - image: ubuntu
+    name: readiness
+    readinessProbe:
+      httpGet:
+        path: /api/version
+      initialDelaySeconds: 15
+      periodSeconds: 20
+      failureThreshold: 30
+    livenessProbe:
+      httpGet:
+        path: /api/version
+      initialDelaySeconds: 15
+      periodSeconds: 20
+      failureThreshold: 30

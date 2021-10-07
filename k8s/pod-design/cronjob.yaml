@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+   name: my-cronjob
+spec:
+  schedule: "1 * * * *"
+  suspend: true
+  parallelism: 1
+  completions: 5
+  backoffLimit: 4
+  jobTemplate:
+    metadata:
+      name: my-cronjob
+    spec:
+      template:
+        spec:
+          containers:
+          -  name: my-container
+             image: busybox
+             args:
+             - "bin/sh"
+             - -c
+             - date; "echo Hello world from k8s"
+          restartPolicy: OnFailure
+

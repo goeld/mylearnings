@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my-probe
+  name: my-probe
+spec:
+  containers:
+  - image: nginx
+    name: my-probe
+    resources: {}
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 8080
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

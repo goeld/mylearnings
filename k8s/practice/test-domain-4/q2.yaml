@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: my-secret
+data:
+  user: YWRtaW4=
+  pass: MTIzNDU=
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2021-05-28T23:59:21Z"
+  labels:
+    run: my-pod-with-secret
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:containers:
+          k:{"name":"my-pod-with-secret"}:
+            .: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+    manager: kubectl-run
+    operation: Update
+    time: "2021-05-28T23:59:21Z"
+  name: my-pod-with-secret
+  namespace: default
+  resourceVersion: "379527"
+  uid: 91378fc6-e22b-4a9c-a9f9-27168099bf69
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: my-pod-with-secret
+    env:
+    - name: DB_USER
+      valueFrom:
+        secretKeyRef:
+          name: my-secret
+          key: user
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: my-secret
+          key: pass
+
+  

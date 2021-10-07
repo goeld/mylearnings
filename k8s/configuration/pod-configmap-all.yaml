@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: my-pod-cfgmap
+  name: my-pod-cfgmap
+spec:
+  containers:
+  - image: nginx
+    name: my-pod-cfgmap
+    resources: {}
+    volumeMounts:
+    - name: my-pod-volume
+      mountPath: /etc/config
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+  - name: my-pod-volume
+    configMap:
+      name: my-conf-map
+status: {}
