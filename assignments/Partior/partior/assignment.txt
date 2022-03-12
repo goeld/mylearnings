@@ -1,0 +1,49 @@
+
+How did you find your call with Amin?  
+
+If you are keen to proceed, you will need to complete this assignment. Once you ready in the next week or so, we can arrange a demo and presentation session with the Head of Engineering.
+ 
+Minimally, please do section A, B and C. If you wish to, you can attempt other sections too!.
+ 
+Talent Assessment Assignments
+Instructions:
+•       Deliver a ~45 minutes live demonstration and presentation for the assigned tasks.
+•       The hosting platform, OS and software for live demo can be anything of your choice you are comfortable with and have access to (local machine, hypervisor, cloud, container platform, any IDE etc)
+•       The presentation material can be in any medium of your choice such as PPT slides, Keynote, code repository, web site, Mural etc.
+ 
+ 
+Topical Assignment Tasks
+(A) Quorum Blockchain Network Demonstration
+•       Setup a basic working instance of Quorum network consisting of multiple Quorum nodes with Tessera, CLI and Cakeshop.
+•       Using your working setup, demonstrate and explain what each of the basic Quorum system component does and how they interface with each other to form a blockchain network.
+•       On top of the basic setup, suggest and explain what are other system components critical to deliver a production ready Quorum network.
+ 
+(B) GETH API and Blockchain Transaction Demonstration
+•       Using your working setup, demonstrate and explain how to use GETH to invoke JSON RPC API to perform operation to accounts, nodes and transactions.
+•       Using your working setup, demonstrate the following:
+	o       Inspecting nodes/peers information
+	o       Inspecting chain, block and transaction information
+	o       Creating wallets / accounts and transferring Ether between accounts
+ 
+(C) DApps & Smart Contract Development Demonstration
+•       Develop, compile and deploy a working smart contract in Solidity language to demonstrate the concept of smart contract transaction.
+•       Demonstrate the transaction of the deployed smart contract in-action.
+•       Elaborate what development stack, frameworks and libraries you will use for DApps & smart contract development & automated testing.
+ 
+(D) DevSecOps Pipeline Demonstration
+•       Propose a viable software tool stack for CI/CD that include SCM, build, security, test and artifact management, given the constraint that we are a start-up with limited resource.
+•       Demonstrate a basic CI/CD pipeline & automated testing for DApps & Smart contract development, utilizing the tool stack proposed above and relevant blockchain development library & frameworks.
+ 
+(E) Building Secure, Resilient & Highly available Infrastructure
+•       Elaborate what are the key considerations to build a secure Quorum network and What are the security hotspots that need to be addressed.
+•       Elaborate what are the key considerations to build a resilient & HA Quorum architecture.
+•       Design a cloud infrastructure architecture to build a Secure, Resilient & HA Quorum network, addressing the listed considerations.
+ 
+(F) Information Security and Monitoring
+•       Elaborate what are the key considerations to build a secure Quorum network and What are the security hotspots that need to be addressed.
+•       Propose an architecture and design how we can perform effective Security Information and Event Management in a blockchain network, to detect, alert, investigate and manage security threat, on a network with following setup:
+o       3000 Blockchain Nodes running as microservices in 1000 Kubernetes clusters
+o       K8s clusters are located globally in multiple region, spanning across multiple cloud service provider and on-premise data centre
+o       Some of the cluster are hosted by banks and we may not have full access to the logs and clusters
+•       As a start-up with limited resources, what are the key security areas, processes and tools we need to first focus on and establish to offer a secure and reliable blockchain service?
+ 

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: org.web3j.Web3App
+Multi-Release: true
+

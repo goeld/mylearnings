@@ -1,0 +1,284 @@
+https://github.com/ConsenSys/quorum-examples - Advanced users
+		https://github.com/ConsenSys/quorum-dev-quickstart - New users
+		https://github.com/ConsenSys/quorum-examples/blob/master/README.md		
+		https://github.com/ConsenSys/quorum-examples/blob/master/examples/7nodes/README.md
+		https://besu.hyperledger.org/en/stable/Tutorials/Examples/Privacy-Example/	
+
+https://consensys.net/docs/goquorum//en/latest/tutorials/quorum-dev-quickstart/using-the-quickstart/
+
+
+
+JP Morgan: 
+https://medium.com/51nodes/build-a-minimal-quorum-network-90c59ec22226
+	- Explanation on docker-compose file
+
+Solidity Online IDE: https://remix.ethereum.org/#optimize=false&runs=200&evmVersion=null
+
+Deploy smart contract steps : https://consensys.net/quorum/products/guides/getting-started-with-consensys-quorum/
+		Part 6: Deploy a Smart Contract and Send a Private Transaction
+
+Block chain 101: 
+https://101blockchains.com/quorum-blockchain-use-cases/
+https://101blockchains.com/quorum-blockchain-tutorial/
+https://medium.com/51nodes/build-a-minimal-quorum-network-90c59ec22226
+
+You tube webinar:  https://www.youtube.com/watch?v=-JQXPM2ECsM
+
+
+
+Cakeahop - https://github.com/ConsenSys/cakeshop
+docker run -p 8080:8080 quorumengineering/cakeshop
+Member1Besu RPC: http://localhost:20000
+Member1Tessera: http://localhost:9081
+
+Member2Besu RPC: http://localhost:20002
+Member2Tessera: http://localhost:9082
+
+Member3Besu RPC: http://localhost:20004
+Member3Tessera: http://localhost:9083
+cakeshop local http://localhost:8080/
+Petshop: http://localhost:3001/wallet
+
+----------------
+GETH 
+----------
+for running get it need to be attached it to docker container node
+
+```
+$ docker exec -it quorum-examples_node1_1 geth attach /qdata/dd/geth.ipc
+
+$ loadScript('/examples/private-contract.js') 
+
+$ - Print transation details e.g. 
+Contract transaction send: TransactionHash: 0x6dba6e482abd8aa794260167d917500451f8b06432e15c8879d6cbaf0ff8c437 waiting to be mined...
+undefined
+> Contract mined! Address: 0x1932c48b2bf8102ba33b4a6b545c32236e342f34
+[object Object]	
+
+
+
+> Contract mined! Address: 0x1932c48b2bf8102ba33b4a6b545c32236e342f34
+[object Object]
+
+> eth.getTransaction('0x6dba6e482abd8aa794260167d917500451f8b06432e15c8879d6cbaf0ff8c437')
+{
+  blockHash: "0xddd7d964f705d409d7ace0fcbb0e565b939de1ad47d79c5f62df4ae2bbb0ce6d",
+  blockNumber: 691,
+  from: "0xed9d02e382b34818e88b88a309c7fe71e65f419d",
+  gas: 4700000,
+  gasPrice: 0,
+  hash: "0x6dba6e482abd8aa794260167d917500451f8b06432e15c8879d6cbaf0ff8c437",
+  input: "0x29899dd8aa6ee77003f77bb37b0188dfd7e9ea679226c3b12f508424359f111c9d514a4d146af09a948c1409857f0e97488953193601707ab3b40af837081fa1",
+  nonce: 0,
+  r: "0x49dda7d0ffefefda91fbe0ce43c1637038ba78ac6f6b8a2b0b31d8ae1f94d43a",
+  s: "0x2696afa8f819a82b3eee3b0bebeeebc2ea1a275ec7136163d4e6938e7292b0a7",
+  to: null,
+  transactionIndex: 0,
+  v: "0x25",
+  value: 0
+}
+>
+
+
+
+$> eth.getTransactionReceipt('0x6dba6e482abd8aa794260167d917500451f8b06432e15c8879d6cbaf0ff8c437')
+{
+  blockHash: "0xddd7d964f705d409d7ace0fcbb0e565b939de1ad47d79c5f62df4ae2bbb0ce6d",
+  blockNumber: 691,
+  contractAddress: "0x1932c48b2bf8102ba33b4a6b545c32236e342f34",
+  cumulativeGasUsed: 0,
+  from: "0xed9d02e382b34818e88b88a309c7fe71e65f419d",
+  gasUsed: 0,
+  isPrivacyMarkerTransaction: false,
+  logs: [],
+  logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  status: "0x1",
+  to: null,
+  transactionHash: "0x6dba6e482abd8aa794260167d917500451f8b06432e15c8879d6cbaf0ff8c437",
+  transactionIndex: 0
+}
+
+
+$ > var address = "0x1932c48b2bf8102ba33b4a6b545c32236e342f34"; //replace with your contract address 
+
+$> var abi = [{"constant":true,"inputs":[],"name":"storedData","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"x","type":"uint256"}],"name":"set","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"retVal","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"initVal","type":"uint256"}],"type":"constructor"}];
+
+$> var private = eth.contract(abi).at(address)
+
+$> private.get()
+
+```
+--------------------------
+
+
+---------------
+Solidity
+---------------
+https://medium.com/51nodes/build-a-minimal-quorum-network-90c59ec22226 
+Solidity - https://remix.ethereum.org
+
+
+
+---------------
+
+
+
+
+--------------------------------------------------------------------
+JSON-RPC API
+--------------------------------------------------------------------
+
+
+Client Version by 
+
+(base) admin@Admins-MacBook-Pro ~ % curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":1}' -H 'Content-Type: application/json' http://localhost:8545
+{
+  "jsonrpc" : "2.0",
+  "id" : 1,
+  "result" : "besu/v21.10.2/linux-x86_64/oracle_openjdk-java-11"
+}%
+
+
+No of peers
+(base) admin@Admins-MacBook-Pro ~ % curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":1}' -H 'Content-Type: application/json'  http://localhost:8545
+{
+  "jsonrpc" : "2.0",
+  "id" : 1,
+  "result" : "0x7"
+}%
+
+
+
+
+Call eth_blockNumber to retrieve the number of the most recently synchronized block:
+
+
+(base) admin@Admins-MacBook-Pro ~ % curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' -H 'Content-Type: application/json' http://localhost:8545
+{
+  "jsonrpc" : "2.0",
+  "id" : 1,
+  "result" : "0x85e"
+}%
+
+Here the hexadecimal value 0x2a translates to decimal as 42, the number of blocks received by the node so far, about two minutes after the new network started.
+
+
+
+(base) admin@Admins-MacBook-Pro ~ %
+
+
+
+--------------------------------------------------------------------
+Smart Contract Deployment & Transaction Details
+--------------------------------------------------------------------
+
+
+(base) admin@Admins-MacBook-Pro smart_contracts % node scripts/private_tx
+Client URL ... http://127.0.0.1:20000
+Creating contract - ...
+Getting contractAddress from txHash:  0xa82265c269a9b5d527a5a7bfcf7f8aa504671eb50424d8e612a4fe162eb71240
+Waiting for transaction to be mined ...
+Private Transaction Receipt:  {
+  contractAddress: '0x7634a61eb86c65130676abf837e03663df20f811',
+  from: '0x13a52aab892e1322e8b52506276363d4754c122e',
+  output: '0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c80632a1afcd914604157806360fe47b114605d5780636d4ce63c146088575b600080fd5b604760a4565b6040518082815260200191505060405180910390f35b608660048036036020811015607157600080fd5b810190808035906020019092919050505060aa565b005b608e60b4565b6040518082815260200191505060405180910390f35b60005481565b8060008190555050565b6000805490509056fea2646970667358221220e6966e446bd0af8e6af40eb0d8f323dd02f771ba1f11ae05c65d1624ffb3c58264736f6c63430007060033',
+  commitmentHash: '0xa82265c269a9b5d527a5a7bfcf7f8aa504671eb50424d8e612a4fe162eb71240',
+  transactionHash: '0x68de280f52492e5835077e2a8595147a2e406745a8eee2164610adf67a81bea7',
+  privateFrom: 'BULeR8JyUWhiuuCMU/HLA0Q5pzkYT+cHII3ZKBey3Bo=',
+  privateFor: [ '1iTZde/ndBHvzhcl7V68x44Vx7pl8nwx9LqnM/AfJUg=' ],
+  status: '0x1',
+  logs: [],
+  logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  blockHash: '0x123e736fa6c8875ea200a43870965b71d24fa7e6eeaec547afcfec990a95887f',
+  blockNumber: '0xa',
+  transactionIndex: '0x0'
+}
+Address of transaction:  0x7634a61eb86c65130676abf837e03663df20f811
+Use the smart contracts 'get' function to read the contract's constructor initialized value ..
+Waiting for transaction to be mined ...
+Member1 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000002f
+Use the smart contracts 'set' function to update that value to 123 .. - from member1 to member3
+Transaction hash: 0x626861fe47a91c58bd22787d3db24b239b38334c3a780797b24ac7ed22a55453
+Waiting for transaction to be mined ...
+Verify the private transaction is private by reading the value from all three members ..
+Waiting for transaction to be mined ...
+Member1 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000007b
+Waiting for transaction to be mined ...
+Member2 value from deployed contract is: 0x
+Waiting for transaction to be mined ...
+Member3 value from deployed contract is: 0x000000000000000000000000000000000000000000000000000000000000007b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Installation steps
+1. Clone repo: 
+2. Run command for docker compose file : npx quorum-dev-quickstart
+	-> Choose the options (opted as below)
+		- Hyperledger
+		- Codeify Orchesteator - No
+		- Quoram Key Manager - No
+		- Enable Private Transaction support - Yes
+		- Logging support - ELK
+		- Enable network monitoring with Blackscount - Yes	
+		- Where should we create the config files for this network? Please
+			choose either an empty directory, or a path to a new directory that does
+			not yet exist. Default: ./quorum-test-network
+
+3. Refer to quotram-test-network/readme.md for futher details
+4. 
+
+$ cd quoram-test-network
+$ npx quorum-dev-quickstart --clientType besu --outputPath ./quorum-test-network --monitoring default --privacy true --orchestrate false --quorumKeyManager false
+
+
+$ npx quorum-dev-quickstart --clientType goquorum --outputPath ./go-quorum-test-network --monitoring default --privacy true --orchestrate false --quorumKeyManager false
+
+
+$ ./run.sh
+	Builds following
+	---> Builds explorer
+	---> Builds logstash
+	---> Builds filebeat
+	---> builds metricbeat			
+	
+
+	Creates following volumes
+		Creating network "quorum-dev-quickstart" with driver "bridge"
+		Creating volume "quorum-test-network_public-keys" with default driver
+		Creating volume "quorum-test-network_prometheus" with default driver
+		Creating volume "quorum-test-network_grafana" with default driver
+		Creating volume "quorum-test-network_cakeshop" with default driver
+		Creating volume "quorum-test-network_member1tessera" with default driver
+		Creating volume "quorum-test-network_member2tessera" with default driver
+		Creating volume "quorum-test-network_member3tessera" with default driver
+		Creating volume "quorum-test-network_splunk" with default driver
+		Creating volume "quorum-test-network_ethlogger" with default driver
+		Creating volume "quorum-test-network_blockscoutpostgres" with default driver 
+
+
+
+	----------------------------------
+	List endpoints and services
+	----------------------------------
+	JSON-RPC HTTP service endpoint                 : http://localhost:8545
+	JSON-RPC WebSocket service endpoint            : ws://localhost:8546
+	Web block explorer address                     : http://localhost:25000/
+	Blockscout address                             : http://localhost:26000/
+	Prometheus address                             : http://localhost:9090/graph
+	Grafana address                                : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
+	Collated logs using Kibana endpoint            : http://localhost:5601/app/kibana#/discover	

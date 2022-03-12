@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.web3j.generated.contracts.HelloWorldTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-01-19T13:58:38" hostname="Admins-MacBook-Pro.local" time="0.377">
+  <properties/>
+  <testcase name="greeting()" classname="org.web3j.generated.contracts.HelloWorldTest" time="0.169"/>
+  <testcase name="newGreeting()" classname="org.web3j.generated.contracts.HelloWorldTest" time="0.207"/>
+  <system-out><![CDATA[21:58:36.700 [Test worker] INFO org.hyperledger.besu.ethereum.mainnet.ProtocolScheduleBuilder - Protocol schedule created with milestones: [ConstantinopleFix: 0]
+21:58:36.852 [Test worker] INFO org.web3j.evm.EmbeddedEthereum - Starting with root: 0x896a24c0a23b63abdae2dbdd4788f2c91271f0cc8dd6491e37e02327a1a20491
+21:58:38.114 [Test worker] INFO org.web3j.evm.EmbeddedEthereum - Ending with root: 0x0ea7e791eff2711341e8e1b62ffe074406ba77c03b672161124ee1fa30a7e114
+21:58:38.329 [Test worker] INFO org.web3j.evm.EmbeddedEthereum - Starting with root: 0x0ea7e791eff2711341e8e1b62ffe074406ba77c03b672161124ee1fa30a7e114
+21:58:38.518 [Test worker] INFO org.web3j.evm.EmbeddedEthereum - Ending with root: 0xe8ea395288bd30ea4949bf116795dbb425f8bd7a7d97bcc57649c5186ae6e3cb
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

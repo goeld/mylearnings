@@ -1,0 +1,58 @@
+https://github.com/ConsenSys/quorum-examples - Advanced users
+
+https://github.com/ConsenSys/quorum-dev-quickstart - New users
+
+Solidity Online IDE: https://remix.ethereum.org/#optimize=false&runs=200&evmVersion=null
+
+Installation steps
+1. Clone repo: 
+2. Run command for docker compose file : npx quorum-dev-quickstart
+	-> Choose the options (opted as below)
+		- Hyperledger
+		- Codeify Orchesteator - No
+		- Quoram Key Manager - No
+		- Enable Private Transaction support - Yes
+		- Logging support - ELK
+		- Enable network monitoring with Blackscount - Yes	
+		- Where should we create the config files for this network? Please
+			choose either an empty directory, or a path to a new directory that does
+			not yet exist. Default: ./quorum-test-network
+
+3. Refer to quotram-test-network/readme.md for futher details
+4. 
+
+$ cd quoram-test-network
+$ npx quorum-dev-quickstart --clientType besu --outputPath ./quorum-test-network --monitoring default --privacy true --orchestrate false --quorumKeyManager false
+$ ./run.sh
+	Builds following
+	---> Builds explorer
+	---> Builds logstash
+	---> Builds filebeat
+	---> builds metricbeat			
+	
+
+	Creates following volumes
+		Creating network "quorum-dev-quickstart" with driver "bridge"
+		Creating volume "quorum-test-network_public-keys" with default driver
+		Creating volume "quorum-test-network_prometheus" with default driver
+		Creating volume "quorum-test-network_grafana" with default driver
+		Creating volume "quorum-test-network_cakeshop" with default driver
+		Creating volume "quorum-test-network_member1tessera" with default driver
+		Creating volume "quorum-test-network_member2tessera" with default driver
+		Creating volume "quorum-test-network_member3tessera" with default driver
+		Creating volume "quorum-test-network_splunk" with default driver
+		Creating volume "quorum-test-network_ethlogger" with default driver
+		Creating volume "quorum-test-network_blockscoutpostgres" with default driver 
+
+
+
+	----------------------------------
+	List endpoints and services
+	----------------------------------
+	JSON-RPC HTTP service endpoint                 : http://localhost:8545
+	JSON-RPC WebSocket service endpoint            : ws://localhost:8546
+	Web block explorer address                     : http://localhost:25000/
+	Blockscout address                             : http://localhost:26000/
+	Prometheus address                             : http://localhost:9090/graph
+	Grafana address                                : http://localhost:3000/d/XE4V0WGZz/besu-overview?orgId=1&refresh=10s&from=now-30m&to=now&var-system=All
+	Collated logs using Kibana endpoint            : http://localhost:5601/app/kibana#/discover	
