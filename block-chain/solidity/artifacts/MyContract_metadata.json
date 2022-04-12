@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "myString",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"MyContral.sol": "MyContract"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"MyContral.sol": {
+			"keccak256": "0x504a823fc08369f70d5a0679799d3a6f3b891c64d79c3e1fa25ba0c9c3858844",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://b19623899c29969e20e0b2dc8138f52187602f8fb07b7eb0663c1bba7b531486",
+				"dweb:/ipfs/QmNgNZ3nX9ybfyVDcSu62cxRE21Ld58SBFLe4H7R1BTZLa"
+			]
+		}
+	},
+	"version": 1
+}
