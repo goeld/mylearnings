@@ -1,14 +1,21 @@
 from pyspark import SparkConf, SparkContext
 import collections
 
-config = SparkConf().setMaster("local").setAppName("RatingsHistogram")
-#sc = SparkContext()
-sc = SparkContext(conf=config)
+class RatingHistogram:
 
-lines = sc.textFile("file:///Volumes/aadi/workspace/SparkCourse/ml-100k/u.data")
-ratings = lines.map(lambda x: x.split()[2])
-result = ratings.countByValue()
+    def __init__(self):
+        conf = SparkConf().setMaster("local").setAppName("my-rating-historgram")
+        self.sc = SparkContext(conf=conf)
 
-sortedResults = collections.OrderedDict(sorted(result.items()))
-for key, value in sortedResults.items():
-    print("%s %i" % (key, value))
+
+    def load_rating(self, file_path):
+        lines = self.sc.textFile(file_path)
+        ratings = lines.map(lambda x: x.split()[2])
+        results = ratings.countByValue()
+        sortedResults = collections.OrderedDict(sorted(results.items()))
+        for key, value in sortedResults.items():
+            print(f"{key} - {value}")
+
+
+ratingHistogram = RatingHistogram()
+ratingHistogram.load_rating("ml-100k/u.data")
