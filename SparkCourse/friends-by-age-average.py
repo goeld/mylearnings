@@ -28,6 +28,9 @@ class AverageFriendsByAge:
         results = averageByNumbers.collect()
         for age, average_friends in results:
             print(f"Age={age}, Average Age= {average_friends}")
+
+        for result in results:
+            print(result)
         print("Successfully executed")
 
 
