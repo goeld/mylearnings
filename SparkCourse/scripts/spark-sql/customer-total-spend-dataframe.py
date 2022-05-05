@@ -36,7 +36,7 @@ ordersByCustomer = orders.groupBy(orders.customerId)\
 
 date1 = datetime.now()
 
-ordersByCustomer.show()
+ordersByCustomer.show(ordersByCustomer.count())
 
 date2 = datetime.now()
 
