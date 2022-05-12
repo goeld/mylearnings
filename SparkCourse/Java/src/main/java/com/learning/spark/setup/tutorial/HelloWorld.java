@@ -1,4 +1,4 @@
-package com.learning.spark;
+package com.learning.spark.setup.tutorial;
 
 public class HelloWorld {
 
