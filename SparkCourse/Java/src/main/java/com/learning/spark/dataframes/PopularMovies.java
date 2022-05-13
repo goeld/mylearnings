@@ -23,10 +23,10 @@ public class PopularMovies {
                 .schema(schema)
                 .csv("/Volumes/aadi/workspace/mylearnings/SparkCourse/ml-100k/u.data");
 
-        df.groupBy("movieId").count()
+        Dataset<Row> sorted = df.groupBy("movieId").count()
                 .orderBy("count")
         ;
-        df.show();
+        sorted.show((int) sorted.count());
         df.printSchema();
 
 
