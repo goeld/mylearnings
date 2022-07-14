@@ -3,6 +3,7 @@ package com.learning.spark.dataframes;
 import com.learning.spark.schemas.Schemas;
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.Column;
+import org.apache.spark.sql.DataFrameReader;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
