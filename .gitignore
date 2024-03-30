@@ -3,6 +3,12 @@
 
 .idea
 .DS_Store
+**/**/.DS_Store
+
+venv_*
+**/**/venv_*
+
+
 .gradle/
 SparkCourse/**/.gradle
 **/**/.gradle
